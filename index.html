@@ -1036,7 +1036,9 @@
       .ba-item img {
         width: 100%;
         height: 320px;
-        object-fit: cover;
+        object-fit: contain;
+        object-position: center;
+        background-color: #e9edf2;
         display: block;
       }
 
@@ -3545,6 +3547,52 @@
           display: none;
         }
       }
+
+      /* ===== ENQUADRAMENTO AJUSTADO: APENAS "ANTES E DEPOIS" =====
+         Quadros mais altos para as fotos verticais, sem esticar as imagens.
+         O depois da revitalizacao de Ronaldo fica integralmente visivel. */
+      .before-after .ba-item img {
+        width: 100%;
+        height: clamp(350px, 37.5vw, 455px);
+        object-fit: cover;
+        object-position: center 50%;
+      }
+
+      /* Cozinha: valoriza bancada, janela e acabamento. */
+      .before-after .ba-slide:nth-child(1) .ba-item img {
+        object-position: center 30%;
+      }
+
+      /* Fachada antes: mantem telhado, aberturas e area a reformar. */
+      .before-after .ba-slide:nth-child(2) .ba-item:first-child img {
+        object-position: center 56%;
+      }
+
+      /* Fachada depois: sem recorte; esta foto ja enquadra muito bem. */
+      .before-after .ba-slide:nth-child(2) .ba-item:last-child img {
+        object-fit: contain;
+        object-position: center;
+        background-color: #e9edf2;
+      }
+
+      /* Escadaria e comercio: centraliza as areas transformadas. */
+      .before-after .ba-slide:nth-child(3) .ba-item img {
+        object-position: center 50%;
+      }
+      .before-after .ba-slide:nth-child(4) .ba-item img {
+        object-position: center 52%;
+      }
+
+      @media (max-width: 768px) {
+        .before-after .ba-item img {
+          height: clamp(250px, 41vw, 320px);
+        }
+      }
+      @media (max-width: 480px) {
+        .before-after .ba-item img {
+          height: clamp(190px, 55vw, 263px);
+        }
+      }
     </style>
   </head>
 
@@ -4203,7 +4251,7 @@
             </div>
             <div class="portfolio-item reveal">
               <img
-                src="imagens\Vagner\colher\6.jpeg"
+                src="imagens\Vagner\colher\4.jpeg"
                 alt="Construção de telhados"
                 loading="lazy"
               />
